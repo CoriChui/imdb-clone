@@ -1,0 +1,35 @@
+.footer {
+  text-align: center;
+  color: set-text-color($primary-color);
+
+  &__social {
+    i {
+      @include header-button;
+      padding: 15px;
+      margin: 20px 10px;
+
+      &:hover {
+        @include header-hover-color;
+        background-color: set-opacity(set-text-color($primary-color), 0.1);
+        border-radius: 35px;
+      }
+    }
+  }
+
+  &__links {
+    display: flex;
+    justify-content: center;
+
+    h4 {
+      margin: 0 15px;
+      cursor: pointer;
+      font-weight: 400;
+    }
+  }
+
+  p {
+    font-size: 0.3;
+    padding: 30px;
+    font-size: 0.7rem;
+  }
+}

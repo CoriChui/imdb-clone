@@ -1,0 +1,312 @@
+.header {
+  position: relative;
+  height: 55px;
+  width: 100%;
+  background-color: $primary-color;
+  display: flex;
+  justify-content: center;
+
+  &__inner {
+    width: 1300px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+
+    & > span {
+      margin-right: 1rem;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      @include header-button;
+      margin-left: 0.5rem;
+
+      &__label {
+        margin-left: 5px;
+      }
+
+      &:hover {
+        @include header-hover-color;
+      }
+    }
+
+    span {
+      color: $yellow-color;
+      transform: scale(2, 1.1);
+      margin-left: 2.5rem;
+    }
+
+    .searchbar {
+      display: flex;
+      height: 30px;
+      flex: 1;
+      position: relative;
+      background-color: set-text-color($primary-color);
+      border-radius: 4px;
+      box-shadow: none;
+      margin-left: 0.5rem;
+      align-items: center;
+
+      &--selector {
+        background-color: set-text-color($primary-color);
+        font-size: 0.9rem;
+        font-weight: 600;
+        cursor: pointer;
+        padding: 0px 5px;
+
+        &::after {
+          font-family: "Font Awesome 5 Free";
+          content: "\f0d7";
+          padding: 0px 5px;
+        }
+      }
+
+      &--input {
+        height: 100%;
+        flex-grow: 1;
+        padding: 0px 10px;
+        outline: none;
+        border: none;
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+        border-left: 1px solid set-opacity($primary-color, 0.4);
+      }
+
+      &--after {
+        width: 50px;
+        text-align: center;
+
+        img {
+          width: 15px;
+          opacity: 0.5;
+        }
+      }
+
+      &:focus-within {
+        box-shadow: 0 0 0 2px $yellow-color;
+      }
+
+      .query-popup {
+        z-index: 1000;
+        position: absolute;
+        width: 200px;
+        top: 35px;
+        left: 0;
+        height: max-content;
+        overflow: hidden;
+        background-color: $primary-color;
+        color: lightgrey;
+        border-radius: 5px;
+        cursor: pointer;
+
+        &__item {
+          display: flex;
+          align-items: center;
+          padding: 0 20px;
+
+          &:hover {
+            background-color: set-opacity(set-text-color($primary-color), 0.1);
+          }
+
+          svg {
+            fill: lightgrey;
+            margin-right: 15px;
+          }
+        }
+
+        .selected {
+          svg {
+            fill: $yellow-color;
+          }
+
+          h3 {
+            color: $yellow-color;
+          }
+        }
+
+        h3 {
+          font-weight: 500;
+          margin: 15px 0;
+        }
+
+        &--open {
+          max-height: max-content;
+        }
+
+        &--hidden {
+          height: 0 !important;
+        }
+      }
+    }
+
+    .divider {
+      width: 2px;
+      height: 30px;
+      margin: 0 0.5rem;
+      background-color: set-opacity(set-text-color($primary-color), 0.2);
+    }
+
+    .imdb-pro {
+      margin-left: 10px;
+    }
+
+    .watchlist {
+      display: flex;
+      align-items: center;
+      @include header-button;
+
+      svg {
+        padding-right: 5px;
+      }
+
+      &:hover {
+        @include header-hover-color;
+      }
+    }
+
+    .sign-in {
+      width: 85px;
+    }
+
+    & > h5 {
+      @include header-button;
+
+      &:hover {
+        @include header-hover-color;
+      }
+    }
+  }
+
+  &__menu {
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-y: scroll !important;
+    height: 100vh;
+    width: 100%;
+    background-color: $primary-color;
+    @include transition-ease(0.3s);
+
+    .inner {
+      margin: 2rem auto;
+      width: 1000px;
+
+      &__top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        i {
+          color: $yellow-color;
+          transform: scale(2, 1);
+          cursor: pointer;
+        }
+
+        svg {
+          fill: $yellow-color;
+          cursor: pointer;
+
+          &:hover {
+            opacity: 0.9;
+          }
+        }
+      }
+
+      &__main {
+        color: set-text-color($primary-color);
+        display: flex;
+        justify-content: space-around;
+        margin: 2rem 0;
+        text-align: left;
+
+        svg {
+          fill: $yellow-color;
+        }
+
+        h2 {
+          margin-bottom: 1rem;
+          font-weight: 500;
+        }
+
+        h4 {
+          margin: 0.7rem 0;
+          font-weight: 500;
+          &:hover {
+            text-decoration: underline;
+            cursor: pointer;
+          }
+        }
+
+        .left {
+          position: relative;
+          h2:before {
+            content: "";
+            position: absolute;
+            left: -20%;
+            top: 2%;
+            width: 24px;
+            height: 24px;
+            background-image: url("../img/movie.svg");
+          }
+        }
+
+        .middle {
+          position: relative;
+          h2:before {
+            content: "";
+            position: absolute;
+            left: -20%;
+            top: 2%;
+            width: 24px;
+            height: 24px;
+            background-image: url("../img/tv.svg");
+          }
+        }
+
+        .right {
+          position: relative;
+          h2:before {
+            content: "";
+            position: absolute;
+            left: -20%;
+            top: 2%;
+            width: 24px;
+            height: 24px;
+            background-image: url("../img/star.svg");
+          }
+        }
+      }
+    }
+
+    &--open {
+      height: 100%;
+    }
+    &--hidden {
+      height: 0;
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .header__inner {
+    .imdb-pro {
+      display: none;
+    }
+    .nav__label {
+      display: none;
+    }
+    .sign-in {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .header__inner {
+    & > span {
+      display: none;
+    }
+  }
+}

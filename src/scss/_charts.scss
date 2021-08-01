@@ -1,0 +1,169 @@
+.charts {
+  position: relative;
+  flex: 0.7;
+  padding: 20px;
+
+  &:after {
+    position: absolute;
+    content: "";
+    height: 100%;
+    border-right: 3px solid set-opacity($primary-color, 0.4);
+    right: 0;
+    top: 0;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-bottom: 20px;
+    border-bottom: 1px solid set-opacity($primary-color, 0.1);
+
+    h3 {
+      font-weight: 600;
+    }
+
+    h2 {
+      font-weight: 600;
+    }
+
+    p {
+      font-size: 0.8rem;
+      margin-top: 5px;
+    }
+
+    #{&}--share {
+      text-align: center;
+      color: set-opacity($primary-color, 0.7);
+
+      h5 {
+        font-weight: 600;
+      }
+
+      img {
+        width: 40px;
+        opacity: 0.7;
+        padding: 10px;
+        cursor: pointer;
+
+        &:hover {
+          border-radius: 20px;
+          background-color: set-opacity($primary-color, 0.2);
+        }
+      }
+    }
+  }
+
+  &__sortbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+
+    &--select {
+      display: flex;
+
+      select {
+        margin: 0 5px;
+      }
+
+      p:last-child {
+        padding: 0 5px;
+        border-radius: 3px;
+        border: 1px solid set-opacity($primary-color, 0.3);
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__movies {
+    padding-bottom: 10px;
+
+    &--header {
+      display: flex;
+      align-items: center;
+      margin-left: 5rem;
+      margin-right: 4.5rem;
+      margin-bottom: 5px;
+
+      p:nth-child(1) {
+        font-weight: 600;
+        flex: 0.8;
+      }
+      p:nth-child(2) {
+        font-weight: 600;
+        flex: 0.15;
+      }
+      p:nth-child(3) {
+        font-weight: 600;
+        flex: 0.15;
+      }
+    }
+
+    #{&}--movie {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 2px 0;
+
+      img {
+        width: 40px;
+        height: 60px;
+        object-fit: cover;
+      }
+
+      .title {
+        flex: 0.7;
+
+        span {
+          font-size: 0.9rem;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+        p:last-child {
+          font-size: 0.8rem;
+        }
+      }
+
+      svg {
+        width: 40px;
+        height: 40px;
+        margin: 0 15px;
+        cursor: pointer;
+        opacity: 0.3;
+      }
+
+      svg:hover {
+        opacity: 0.4;
+      }
+
+      h5 {
+        vertical-align: bottom;
+      }
+
+      h5::before {
+        content: "\2605";
+        font-size: 1.5rem;
+        color: $yellow-color;
+        padding: 0 3px;
+        vertical-align: sub;
+      }
+
+      h3 {
+        margin: 0 5px;
+        color: set-opacity($primary-color, 0.3);
+        font-size: 1.5rem;
+        cursor: pointer;
+
+        &:hover {
+          color: $secondary-color;
+        }
+      }
+    }
+
+    .even {
+      background-color: set-opacity($primary-color, 0.03);
+    }
+  }
+}
